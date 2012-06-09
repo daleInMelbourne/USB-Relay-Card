@@ -97,10 +97,10 @@
     /** LED ************************************************************/
     #define mInitAllLEDs()      LATC &= 0xF0; TRISC &= 0xF0;
     
-    #define mLED_1              LATCbits.LATC0
-    #define mLED_2              LATCbits.LATC1
-    #define mLED_3              LATCbits.LATC2
-    #define mLED_4              LATCbits.LATC3
+    #define mLED_1              LATCbits.LATC7
+    #define mLED_2              mLED_1
+    #define mLED_3              mLED_1
+    #define mLED_4              mLED_1
     
     #define mGetLED_1()         mLED_1
     #define mGetLED_2()         mLED_2
@@ -117,17 +117,17 @@
     #define mLED_3_Off()        mLED_3 = 0;
     #define mLED_4_Off()        mLED_4 = 0;
     
-    #define mLED_1_Toggle()     mLED_1 = !mLED_1;
+    #define mLED_1_Toggle()     mLED_1 = mLED_1;
     #define mLED_2_Toggle()     mLED_2 = !mLED_2;
-    #define mLED_3_Toggle()     mLED_3 = !mLED_3;
-    #define mLED_4_Toggle()     mLED_4 = !mLED_4;
+    #define mLED_3_Toggle()     mLED_3 = mLED_3;
+    #define mLED_4_Toggle()     mLED_4 = mLED_4;
     
     /** SWITCH *********************************************************/
     #define mInitSwitch2()      //TRISAbits.TRISA3=1
         //only one switch available so double duty
     #define mInitSwitch3()      //TRISAbits.TRISA3=1
-    #define sw2                 PORTAbits.RA3
-    #define sw3                 PORTAbits.RA3
+    //#define sw2                 PORTAbits.RA3
+    //#define sw3                 PORTAbits.RA3
     #define mInitAllSwitches()  mInitSwitch2();
 
 	/** RS 232 lines ****************************************************/

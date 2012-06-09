@@ -417,6 +417,9 @@ void main(void)
 int main(void)
 #endif
 {   
+	
+		unsigned int fx;
+
     InitializeSystem();
 
     #if defined(USB_INTERRUPT)
@@ -444,6 +447,21 @@ int main(void)
 
 		// Application-specific tasks.
 		// Application related code may be added here, or in the ProcessIO() function.
+			USB_Out_Buffer[0] = 'h';
+	USB_Out_Buffer[1] = 'e';
+	USB_Out_Buffer[2] = 'l';
+	USB_Out_Buffer[3] = 'l';
+	USB_Out_Buffer[4] = '0';
+	USB_Out_Buffer[5] = ' ';
+	USB_Out_Buffer[6] = 'w';
+	USB_Out_Buffer[7] = 'o';
+	USB_Out_Buffer[8] = 'r';
+	USB_Out_Buffer[9] = 'l';
+	USB_Out_Buffer[10] = 'd';
+	USB_Out_Buffer[11] = '!';
+	
+	NextUSBOut = 12;
+	//for(fx = 0;fx<63000;fx++);
         ProcessIO();        
     }//end while
 }//end main
@@ -670,6 +688,9 @@ void UserInit(void)
 	lastTransmission = 0;
 
 	mInitAllLEDs();
+	
+	
+
 }//end UserInit
 
 /******************************************************************************
@@ -1036,6 +1057,7 @@ void BlinkUSBStatus(void)
     #define mLED_Both_On()          {mLED_1_On();mLED_2_On();}
     #define mLED_Only_1_On()        {mLED_1_On();mLED_2_Off();}
     #define mLED_Only_2_On()        {mLED_1_Off();mLED_2_On();}
+
 
     if(USBSuspendControl == 1)
     {
